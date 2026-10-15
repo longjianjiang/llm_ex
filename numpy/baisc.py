@@ -104,4 +104,4 @@ def matplotlib_hist():
     plt.show()
 
 if __name__ == "__main__":
-    matplotlib_hist()
+    np_random_seed()
