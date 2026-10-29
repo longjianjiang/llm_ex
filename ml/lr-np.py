@@ -22,7 +22,9 @@ def calculate_cost(X, y, m, b):
 
     return np.mean((predictions - y) ** 2)
 
-# (mx + b - y)
+# (mx + b - y)^2
+# 2(mx + b - y) * x
+# 2(mx + b - y) * 1
 def compute_gradient(X, y, m, b):
     predictions = m * X + b
     error = predictions - y
