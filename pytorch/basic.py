@@ -54,5 +54,15 @@ def tensor_multiply():
     tmp4 = tmp2.mean()
     print(tmp4)
 
+def tensor_dim():
+    t1 = torch.tensor([[1, 2, 3], [4, 5, 6]])
+    t2 = t1 + 2
+    print(t2)
+
+    t_sum_dim_0 = torch.sum(t2, dim=0)
+    print(t_sum_dim_0)
+    t_sum_dim_1 = torch.sum(t2, dim=1)
+    print(t_sum_dim_1)
+
 if __name__ == "__main__":
-    tensor_multiply()
+    tensor_dim()
