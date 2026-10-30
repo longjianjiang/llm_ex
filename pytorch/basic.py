@@ -64,5 +64,18 @@ def tensor_dim():
     t_sum_dim_1 = torch.sum(t2, dim=1)
     print(t_sum_dim_1)
 
+def tensor_operations():
+    x_1d = torch.tensor([10, 11, 12, 13, 14])
+    print(x_1d)
+
+    first_element = x_1d[0] # type is tensor
+    print(f"firt element (x_1d[0]): {first_element}, type: {type(first_element)}")
+
+    last_element = x_1d[-1]
+    print(f"last element (x_1d[-1]): {last_element}")
+
+    x_1d[1] = 110
+    print(x_1d)
+
 if __name__ == "__main__":
-    tensor_dim()
+    tensor_operations()
