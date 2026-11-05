@@ -52,3 +52,6 @@ learning_rate = 0.01
 initial_w = 0
 initial_b = 0
 train(learning_rate, initial_w, initial_b, t_x, t_y)
+
+# autograd
+params = torch.tensor([0.0, 0.0], requires_grad=True)
