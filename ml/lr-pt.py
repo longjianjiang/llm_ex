@@ -2,9 +2,9 @@ import torch
 import torch.optim as optim
 
 # learning hours
-x = [1.0, 2.0]#, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
+x = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
 # scores
-y = [45.0, 50.0]#, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0]
+y = [45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0]
 
 t_x = torch.tensor(x)
 t_y = torch.tensor(y)
@@ -54,4 +54,20 @@ initial_b = 0
 train(learning_rate, initial_w, initial_b, t_x, t_y)
 
 # autograd
+print("*" * 20)
 params = torch.tensor([0.0, 0.0], requires_grad=True)
+optimizer = optim.Adam([params], lr=learning_rate)
+
+def train_loop(epochs, params, x, y):
+    for epoch in range(1, epochs + 1):
+        optimizer.zero_grad()
+        w, b = params
+        outputs = model(x, w, b)
+        loss = loss_fn(y, outputs)
+        loss.backward()
+        optimizer.step()
+        if (epoch) % 1000 == 0:
+            print(f"epoch {epoch}/{epochs}, w = {params[0]}, b = {params[1]}, loss: {loss}")
+    return params
+
+train_loop(10000, params, t_x, t_y)

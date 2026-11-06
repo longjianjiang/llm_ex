@@ -65,7 +65,7 @@ initial_cost = calculate_cost(X, y, initial_m, initial_b)
 print(f"initial cost (m=0, b=0): {initial_cost}")
 
 learning_rate = 0.01
-iterations = 1000
+iterations = 10000
 final_m, final_b, cost_history = gradient_descent(X, y, initial_m, initial_b, learning_rate, iterations)
 
 print(f"\ntrain done。")
